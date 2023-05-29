@@ -84,17 +84,25 @@ function Register() {
               />
             </div>
             <div className="form-group col-md-6">
-              <label>Mobile No.</label>
-              <input
-                type="text"
-                className="form-control"
-                name="mobileNo"
-                placeholder=""
-                required
-                minLength="10"
-                maxLength="10"
-              />
-            </div>
+  <label>Mobile No.</label>
+  <input
+    type="text"
+    className="form-control"
+    name="mobileNo"
+    placeholder=""
+    required
+    maxLength="10"
+    onChange={(e) => {
+      const onlyNums = e.target.value.replace(/[^0-9]/g, '');
+      if (onlyNums.length <= 10) {
+        e.target.value = onlyNums;
+      } else {
+        alert("Please enter a maximum of 10 digits.");
+      }
+    }}
+  />
+</div>
+
             <div className="form-group col-md-6">
               <label>Email ID:</label>
               <input
